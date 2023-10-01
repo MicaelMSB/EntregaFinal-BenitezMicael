@@ -1,0 +1,14 @@
+{% extends "padre.html" %}
+{% block contenidoQueCambia %}
+<head>
+    <title>Lista de URLs</title>
+</head>
+<body>
+    <h1 class="m-0 text-center text-white">Lista de URLs</h1>
+    <ul>
+        {% for url_pattern in url_patterns %}
+            <li class="m-0 text-white">{{ url_pattern }}</li>
+        {% endfor %}
+    </ul>
+</body>
+{% endblock contenidoQueCambia %}

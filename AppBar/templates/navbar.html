@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="{% url 'inicio' %}">Bienvenido/a</a>
+        <a class="navbar-brand" href="{% url 'inicio' %}">Bienvenido/a {{ user.username }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,25 +29,34 @@
                     <li class="nav-item">
                         {% if user.is_authenticated %}
                             {% if url %}
-                                <img src="{{url}}" height="30px" alt="avatar">
+                            <img src="{{ url }}" height="40px" alt="avatar" style="border-radius: 50%; border: 2px solid black;">
                             {% endif %}
-                            <a class="btn btn-primary ms-2" href="{% url 'editar_perfil' %}">Editar Perfil</a>
-                            <a class="btn btn-primary ms-2" href="{% url 'Logout' %}">Cerrar Sesión ({{user.username}})</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Perfil
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar datos</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'agregar_avatar' %}">Cambiar avatar</a></li>
+                                </ul>
+                            </li>
+                            <a class="btn btn-primary ms-2" href="{% url 'contacto' %}">Contacto </a>
+                            <a class="btn btn-primary ms-2" href="{% url 'Logout' %}">Cerrar Sesión </a>
                         {% else %}
                             <a class="btn btn-primary ms-2" href="{% url 'login' %}">Iniciar Sesión</a>
                         {% endif %}
                     </li>
                 {% endif %}
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <form class="d-flex">
-                            <button class="btn btn-warning" type="submit">
-                                <i class="bi-cart-fill me-1 text-dark"></i>
-                                Carrito
-                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                            </button>
-                        </form>
-                    </li>
+                <li class="nav-item">
+                    <form class="d-flex" action="{% url 'carrito' %}">
+                        <button class="btn btn-warning" type="submit">
+                            <i class="bi-cart-fill me-1 text-dark"></i>
+                            Carrito
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">{{ total_productos }}</span>
+                        </button>
+                    </form>
+                </li>                
                 {% endif %}
             </ul>
         </div>

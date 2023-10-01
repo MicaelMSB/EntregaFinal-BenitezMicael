@@ -1,0 +1,10 @@
+{% extends 'padre.html' %}
+{% block contenidoQueCambia %}
+<div class=" text-center text-white">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="m-0 text-center">Enviar</button>
+    </form>
+</div>
+{% endblock contenidoQueCambia %}

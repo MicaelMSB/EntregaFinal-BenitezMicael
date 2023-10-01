@@ -1,10 +1,47 @@
 {% extends 'padre.html' %}
-
 {% block contenidoQueCambia %}
+<style>
+  body {
+      background-color: black;
+  }
+  form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: black;
+      border: 2px solid white;
+      border-radius: 5px;
+      text-align: center;
+      color: white;
+  }
+  h1 {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+  }
+  button {
+      margin-top: 10px;
+  }
+  label {
+      display: block;
+      margin-bottom: 10px;
+      color: white;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid white;
+      background-color: black;
+      color: white;
+  }
+</style>
 <form method="POST" action="{% url 'cargar_producto' %}" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Cargar nuevo producto</button>
 </form>
-
 {% endblock contenidoQueCambia %}

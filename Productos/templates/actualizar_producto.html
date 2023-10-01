@@ -1,10 +1,59 @@
 {% extends 'padre.html' %}
-
 {% block contenidoQueCambia %}
-  <h1>Actualizar Producto</h1>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-  </form>
+<style>
+  body {
+      background-color: black;
+  }
+  form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: black;
+      border: 2px solid white;
+      border-radius: 5px;
+      text-align: center;
+      color: white;
+  }
+  h1 {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+  }
+  button {
+      margin-top: 10px;
+  }
+  label {
+      display: block;
+      margin-bottom: 10px;
+      color: white;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid white;
+      background-color: black;
+      color: white;
+  }
+</style>
+<h1 class="text-white">Actualizar Producto</h1>
+<form method="POST" class="text-white">
+  {% csrf_token %}
+  <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+  <input type="text" name="descripcion" value="{{ form.instance.descripcion }}">
+  <br>
+  <label for="{{ form.precio.id_for_label }}">Precio:</label>
+  <input type="number" name="precio" value="{{ form.instance.precio }}">
+  <br>
+  <label for="{{ form.stock.id_for_label }}">Stock:</label>
+  <input type="number" name="stock" value="{{ form.instance.stock }}">
+  <br>
+  <label for="{{ form.imagen.id_for_label }}">Imagen:</label>
+  {{ form.imagen }}
+  <br>
+  <button type="submit">Guardar</button>
+</form>
 {% endblock contenidoQueCambia %}

@@ -1,23 +1,23 @@
 {% extends 'padre.html' %}
-
 {% block contenidoQueCambia %}
   {% if user.is_staff %}
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <h2 class="text-center">Cargar nuevo producto</h2>
+            <h2 class="text-center text-white">Cargar nuevo producto</h2>
             <form method="POST" action="{% url 'cargar_producto' %}" enctype="multipart/form-data">
               {% csrf_token %}
               {{ form.as_p }}
-              <button class="btn btn-primary" type="submit">Cargar</button>
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Cargar</button>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </section>
   {% endif %}
-  
   <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -42,7 +42,10 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div class="text-center">
-                <button class="btn btn-primary mt-auto">Agregar al carrito</button>
+                <form action="{% url 'agregar_al_carrito' producto.id_producto %}" method="post">
+                  {% csrf_token %}
+                  <button class="btn btn-primary mt-auto" type="submit">Agregar al carrito</button>
+                </form>
                 {% if user.is_staff %}
                   <form action="{% url 'eliminar_producto' producto.id_producto %}" method="post">
                     {% csrf_token %}

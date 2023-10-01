@@ -1,0 +1,8 @@
+{% extends 'padre.html' %}
+{% block contenidoQueCambia %}
+  <h1 class="text-white">Vaciar Carrito</h1>
+  <form method="POST" class="text-white">
+    {% csrf_token %}
+    <button type="submit">Vaciar Carrito</button>
+  </form>
+{% endblock contenidoQueCambia %}

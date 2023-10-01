@@ -17,3 +17,4 @@ class ProductoForm(forms.ModelForm):
             'stock': forms.NumberInput(attrs={'class': 'form-control'}),
             'imagen': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
         }
+        

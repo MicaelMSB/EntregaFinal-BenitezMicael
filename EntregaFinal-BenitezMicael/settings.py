@@ -59,7 +59,7 @@ MIDDLEWARE = [
     
 ]
 
-ROOT_URLCONF = 'TerceraPreentregaBenitez.urls'
+ROOT_URLCONF = 'EntregaFinal-BenitezMicael.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TerceraPreentregaBenitez.wsgi.application'
+WSGI_APPLICATION = 'EntregaFinal-BenitezMicael.wsgi.application'
 
 
 # Database

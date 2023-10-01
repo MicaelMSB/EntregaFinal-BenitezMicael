@@ -6,3 +6,5 @@ Si el usuario esta logueado, puede acceder a "Productos" que estan los productos
 Si el usuario es administrador o staff y esta logueado, puede acceder a funcionalidades como cargar un nuevo producto, actualizar, eliminar.
 Es un prototipo que aun le faltan muchas funcionalidades, como por ejemplo el checkout, el delivery, y otras funcionalidades.
 Con este proyecto mi mision es conocer mas a fondo el framework y poder trabajar realizando proyectos en programacion. 
+
+El link del video presentacion del proyecto: https://drive.google.com/file/d/1AR045ZDaxJUFb3wzVrwLD2DU45xCcXe4/view?usp=drive_link
